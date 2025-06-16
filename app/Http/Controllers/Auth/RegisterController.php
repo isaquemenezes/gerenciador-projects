@@ -27,10 +27,6 @@ class RegisterController extends Controller
     {
 
         try {
-            Log::info('Tentativa de cadastro:', [
-                'email' => $request->input('email'),
-                'name' => $request->input('name')
-            ]);
 
             $user = $this->userService->create(
                 $request->validated()

@@ -36,17 +36,23 @@ class BoardApiController extends Controller
     */
     public function index()
     {
+        $userId = auth()->id();
         $boards = Board::with([
                     'cards.category'
                 ])
+                ->where('user_id', $userId)
                 ->orderByDesc('id')
                 ->get();
 
+        Log::info('Boards do usuário autenticado encontrados.', [
+            'user_id' => $userId,
+            'boards' => $boards,
+        ]);
 
-
-    Log::info('Boards encontrados.', ['boards' => $boards]);
-
-    return response()->json($boards, Response::HTTP_OK);
+        return response()->json(
+            $boards,
+            Response::HTTP_OK
+        );
 
     }
 

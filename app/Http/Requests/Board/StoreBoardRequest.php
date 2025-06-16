@@ -24,7 +24,7 @@ class StoreBoardRequest extends FormRequest
         return [
 
             'nome' => [ 'required', 'string', 'max:125' ],
-            'user_id' =>[ 'required ','exists:users,id']
+            // 'user_id' =>[ 'required ','exists:users,id']
 
         ];
     }
@@ -32,8 +32,8 @@ class StoreBoardRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'user_id.required' => 'O ID do usuário é obrigatório.',
-            'user_id.exists' => 'O usuário informado não existe.',
+            // 'user_id.required' => 'O ID do usuário é obrigatório.',
+            // 'user_id.exists' => 'O usuário informado não existe.',
             'nome.required' => 'O nome do board é obrigatório.',
             'nome.max' => 'O nome do board não pode ter mais que 125 caracteres.',
         ];

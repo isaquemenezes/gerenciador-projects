@@ -26,8 +26,20 @@ class CardApiController extends Controller
     public function index(): JsonResponse
     {
 
-        $cards = Card::with('category')->get();
-        Log::info('Cards carregados', [$cards]);
+        // $cards = Card::with('category')->get();
+
+
+        $cards = Card::with('category')
+            ->whereHas('board', fn($query) =>
+                $query->where('user_id', auth()->id())
+            )
+            ->orderByDesc('id')
+            ->get();
+
+        Log::info('Cards do usuário autenticado carregados.', [
+            'user_id' => auth()->id(),
+            'cards' => $cards
+        ]);
 
         return response()->json($cards);
     }
@@ -43,7 +55,14 @@ class CardApiController extends Controller
 
     public function show(string $id): JsonResponse
     {
-        $card = Card::with('board')->find($id);
+        $card = Card::with('board')
+            ->find($id);
+
+        if (!$card) {
+            return response()->json([
+                'message' => 'Card não encontrado.'
+            ], 404);
+        }
 
         return response()->json($card);
     }

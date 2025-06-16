@@ -21,7 +21,6 @@ use App\Http\Controllers\Api\CategoryApiController;
 */
 
 Route::apiResource('categories', CategoryApiController::class);
-Route::get('boards', [BoardApiController::class, 'index']);
 Route::get('boards/{board}', [BoardApiController::class, 'show']);
 
 Route::get('cards', [CardApiController::class, 'index']);
@@ -31,6 +30,7 @@ Route::get('cards/{card}', [CardApiController::class, 'show']);
 Route::middleware('web')->group(function () {
 
     Route::middleware('auth')->group(function () {
+        Route::get('boards', [BoardApiController::class, 'index']);
         Route::post('boards', [BoardApiController::class, 'store']);
         Route::put('boards/{board}', [BoardApiController::class, 'update']);
         Route::delete('boards/{board}', [BoardApiController::class, 'destroy']);

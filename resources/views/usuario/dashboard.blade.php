@@ -258,19 +258,21 @@
             fetchAndRenderAllBoards();
 
             function renderEmptyState() {
+                const canCreateBoard = @json($canCreateBoard ?? false);
                 $('#boards-container').html(`
+
                     <div class="card border-0 shadow-lg card-empty">
                         <div class="card-body text-center py-5">
                             <i class="fas fa-clipboard-list text-muted mb-4" style="font-size: 4rem;"></i>
                             <h3 class="card-title text-muted">Nenhum board encontrado</h3>
                             <p class="card-text text-muted">Comece criando seu primeiro projeto!</p>
-                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#createBoardModal">
-                                <i class="fas fa-plus me-2"></i>Criar Board
-                            </button>
+
                         </div>
                     </div>
+
                 `);
             }
+
 
             function renderErrorState() {
                 $('#boards-container').html(`
