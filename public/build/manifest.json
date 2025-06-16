@@ -1,12 +1,36 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-l0sNRNKZ.js",
-    "name": "app",
+    "file": "assets/app-DUTa-khL.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/css/drag-drop.css": {
+    "file": "assets/drag-drop-CaPKykda.css",
+    "src": "resources/css/drag-drop.css",
+    "isEntry": true
+  },
+  "resources/css/editar-perfil-user.css": {
+    "file": "assets/editar-perfil-user-BJdI_C_K.css",
+    "src": "resources/css/editar-perfil-user.css",
+    "isEntry": true
+  },
+  "resources/css/footer.css": {
+    "file": "assets/footer-CvgUIfzr.css",
+    "src": "resources/css/footer.css",
+    "isEntry": true
+  },
+  "resources/css/perfil.css": {
+    "file": "assets/perfil-C1zhmVp6.css",
+    "src": "resources/css/perfil.css",
+    "isEntry": true
+  },
+  "resources/css/style-navbar.css": {
+    "file": "assets/style-navbar-yN9rnC95.css",
+    "src": "resources/css/style-navbar.css",
+    "isEntry": true
+  },
   "resources/js/app.js": {
-    "file": "assets/app-BHo2WdIw.js",
+    "file": "assets/app-Dcajs1Pm.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
