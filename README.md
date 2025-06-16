@@ -34,8 +34,13 @@ DB_PASSWORD=
  php artisan migrate --seed && php artisan serve
 ``` 
 
+5. Rode os teste :
+ ```
+ php artisan test
+``` 
 
-4. Testar a Aplicação
+
+6. Testar a Aplicação
 ```
 http://127.0.0.1:8000
 ```

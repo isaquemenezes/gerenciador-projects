@@ -8,7 +8,7 @@ export default function autoDismissFlashMessage() {
                 flash.style.transition = 'opacity 0.5s ease';
                 flash.style.opacity = 0;
                 setTimeout(() => flash.remove(), 500);
-            }, 3000);
+            }, 2000);
         }
     });
 }

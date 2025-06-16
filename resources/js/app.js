@@ -4,8 +4,8 @@ import autoDismissFlashMessage from './utils/flashMessage';
 
 
 
-$(document).ready(function () {
+// $(document).ready(function () {
 
 
     autoDismissFlashMessage();
-});
+// });
