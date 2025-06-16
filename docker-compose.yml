@@ -1,0 +1,52 @@
+services:
+    # image project
+    app:
+        container_name: app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - database-pg
+        networks:
+            - laravel
+
+    # nginx
+    nginx:
+        # container_name: app-nginx
+        image: nginx:alpine
+        restart: unless-stopped
+        ports:
+            - "8000:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/:/etc/nginx/conf.d/
+        networks:
+            - laravel
+
+    # banco de dados Postgres
+    database-pg:
+        # container_name: app-db-pg
+        image: postgres:16
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: ${DB_DATABASE}
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        networks:
+            - laravel
+        ports:
+        - "5432:5432"
+
+volumes:
+    pgdata:
+
+networks:
+    laravel:
+        driver: bridge
